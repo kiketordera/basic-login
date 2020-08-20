@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{template "imports.html"}}
+    <title>Users - Demo log in</title>
+  </head>
+  <body>
+    <h1 class="table-title">Users in the Database</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .users}}
+        <tr>
+          <td>{{.Name}}</td>
+          <td>{{.Surname}}</td>
+          <td>{{.Email}}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+    <div class="row"> 
+    <div class="col center" >
+        <a href="/log-out">
+          <img src=/ui/svg/lock.svg class="exit" />
+          <p class="exit-text" >  Log out </p>
+        </a>
+    </div>
+  </body>
+
+</html>

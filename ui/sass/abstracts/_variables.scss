@@ -1,0 +1,29 @@
+:root {
+  --light-green: #96c6a0;
+  --dark-green: #6aa279;
+  --dark-blue: #0567a8;
+  --light-blue: #5d91c0;
+  --fill-blue: #347daf;
+  --red: #d12227;
+}
+
+.background {
+  &-green {
+    background-color: var(--light-green) !important;
+  }
+  &-red {
+    background-color: var(--red) !important;
+  }
+  &-blue {
+    background-color: var(--light-blue) !important;
+  }
+}
+
+.text {
+  &-green {
+    color: #63b190;
+  }
+  &-red {
+    color: #e20000;
+  }
+}

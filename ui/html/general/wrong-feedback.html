@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Something went wrong</title>
+    {{template "imports.html"}}
+  </head>
+  <body class="center-objects" onload="afterLoad()">
+    <div class="feedback-container">
+      <img src="/ui/svg/problem.svg" />
+      <p class="red-text">
+        {{.text}}
+      </p>
+
+      <div class="button-container">
+        <button
+          onclick="window.history.go(-1);"
+          type="button"
+          class="button background-blue"
+        >
+          <span>Back</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

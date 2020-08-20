@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Something went wrong</title>
+    {{template "imports.html"}}
+  </head>
+  <body class="center-objects" onload="afterLoad()">
+    <div class="feedback-container">
+      <img src="/ui/svg/good.svg" />
+      <p class="green-text">
+        The User has been added to the Database
+      </p>
+    </div>
+    <script type="text/javascript">
+      function afterLoad() {
+        window.setTimeout(function () {
+          window.history.go(-1);
+          return false;
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>

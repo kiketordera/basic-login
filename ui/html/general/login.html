@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{template "imports.html"}}
+    <title>Demo log in</title>
+  </head>
+
+  <script>
+    $(document).ready(function () {
+      $(".flip").click(function () {
+        $(".flip-card").toggleClass("flipped");
+      });
+    });
+  </script>
+  <body>
+    <div class="flip-card">
+      <div class="card-front card-face">
+        <div class="form-container">
+          <form
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+            name="loginForm"
+          >
+            <h1>Log-in</h1>
+            <div class="form-group">
+              <input
+                type="email"
+                name="aemail"
+                type="text"
+                required="required"
+              />
+              <label
+                for="input"
+                onchange="this.value=this.value.toLowerCase()"
+                class="control-label"
+                >Email</label
+              ><i class="bar"></i>
+            </div>
+            <div class="form-group">
+              <input name="apassword" type="passworda" required="required" />
+              <label for="input" class="control-label">Password</label
+              ><i class="bar"></i>
+            </div>
+            <div class="button-container">
+              <button type="button" class="button background-blue flip">
+                <span>Sign up</span>
+              </button>
+              <button type="submit" class="button background-green">
+                <span>Log in</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card-back card-face">
+        <div class="form-container">
+          <form
+            onsubmit="return validateForm()"
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+            name="signUpForm"
+          >
+            <h1>Sign-up</h1>
+            <div class="flex space-between">
+              <div class="form-group">
+                <input name="name" type="text" required="required" />
+                <label
+                  for="input"
+                  oninput="this.value=this.value.toLowerCase()"
+                  class="control-label"
+                  >Name</label
+                ><i class="bar"></i>
+              </div>
+              <div class="form-group">
+                <input name="surname" type="text" required="required" />
+                <label
+                  for="input"
+                  oninput="this.value=this.value.toLowerCase()"
+                  class="control-label"
+                  >Surname</label
+                ><i class="bar"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="bemail"
+                type="text"
+                required="required"
+              />
+              <label
+                for="input"
+                oninput="this.value=this.value.toLowerCase()"
+                class="control-label"
+                >Email</label
+              ><i class="bar"></i>
+            </div>
+
+            <div class="form-group">
+              <input
+                name="bpassword"
+                id="bpassword"
+                type="password"
+                required="required"
+              />
+              <label for="input" class="control-label">Password</label
+              ><i class="bar"></i>
+            </div>
+            <div class="form-group">
+              <input
+                name="cpassword"
+                id="cpassword"
+                type="password"
+                required="required"
+              />
+              <label for="input" class="control-label">Repeat Password</label
+              ><i class="bar"></i>
+            </div>
+            <div class="button-container">
+              <button type="button" class="button background-blue flip">
+                <span>Log in</span>
+              </button>
+              <button type="submit" class="button background-green">
+                <span>Sign up</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // This function validates the form to check correct values
+    function validateForm() {
+      if (
+        document.forms["signUpForm"]["bpassword"].value !=
+        document.forms["signUpForm"]["cpassword"].value
+      ) {
+        alert("The passwords are not equal!");
+        return false;
+      }
+    }
+  </script>
+</html>
