@@ -10,6 +10,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/timshannon/bolthold"
 )
@@ -68,7 +69,7 @@ func (db *DB) createRouter() *gin.Engine {
 	router.NoRoute(redirect)
 
 	// Checks user cookie for each request
-	router.Use(checkToken())
+	router.Use(checkToken(), gzip.Gzip(gzip.DefaultCompression))
 
 	home := router.Group("/")
 	{

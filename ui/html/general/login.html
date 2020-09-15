@@ -3,6 +3,8 @@
   <head>
     {{template "imports.html"}}
     <title>Demo log in</title>
+    <meta name="description" content="This is a simple Demo for a Log in build with Go and Gin Gonic.">
+
   </head>
 
   <script>
@@ -26,19 +28,20 @@
               <input
                 type="email"
                 name="aemail"
+                id="aemail"
                 type="text"
                 required="required"
               />
               <label
-                for="input"
+                for="aemail"
                 onchange="this.value=this.value.toLowerCase()"
                 class="control-label"
                 >Email</label
               ><i class="bar"></i>
             </div>
             <div class="form-group">
-              <input name="apassword" type="passworda" required="required" />
-              <label for="input" class="control-label">Password</label
+              <input name="apassword" id="apassword" type="password" required="required" />
+              <label for="apassword" class="control-label">Password</label
               ><i class="bar"></i>
             </div>
             <div class="button-container">
@@ -63,18 +66,18 @@
             <h1>Sign-up</h1>
             <div class="flex space-between">
               <div class="form-group">
-                <input name="name" type="text" required="required" />
+                <input name="name" id="name" type="text" required="required" />
                 <label
-                  for="input"
+                  for="name"
                   oninput="this.value=this.value.toLowerCase()"
                   class="control-label"
                   >Name</label
                 ><i class="bar"></i>
               </div>
               <div class="form-group">
-                <input name="surname" type="text" required="required" />
+                <input name="surname" id="surname" type="text" required="required" />
                 <label
-                  for="input"
+                  for="surname"
                   oninput="this.value=this.value.toLowerCase()"
                   class="control-label"
                   >Surname</label
@@ -85,11 +88,12 @@
               <input
                 type="email"
                 name="bemail"
+                id="bemail"
                 type="text"
                 required="required"
               />
               <label
-                for="input"
+                for="bemail"
                 oninput="this.value=this.value.toLowerCase()"
                 class="control-label"
                 >Email</label
@@ -103,7 +107,7 @@
                 type="password"
                 required="required"
               />
-              <label for="input" class="control-label">Password</label
+              <label for="bpassword" class="control-label">Password</label
               ><i class="bar"></i>
             </div>
             <div class="form-group">
@@ -113,7 +117,7 @@
                 type="password"
                 required="required"
               />
-              <label for="input" class="control-label">Repeat Password</label
+              <label for="cpassword" class="control-label">Repeat Password</label
               ><i class="bar"></i>
             </div>
             <div class="button-container">
