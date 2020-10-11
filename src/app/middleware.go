@@ -53,13 +53,18 @@ func render(c *gin.Context, data gin.H, templateName string) {
 		// Respond with JSON
 		c.JSON(http.StatusOK, data["payload"])
 	default:
-		// Respond with HTML
+		// Respond with HTML, we nee to implement this headers for security reasons to avoid hacker attacks to our website
+		c.Header("Cache-Control", "public, max-age=31536000")
+		c.Header("Strict-Transport-Security", "31536000; includeSubdomains; preload")
+		// c.Header("Content-Security-Policy", "default-src 'self' ")
+		c.Header("X-Content-Type-Options", "nosniff")
 		c.HTML(http.StatusOK, templateName, data)
 	}
 }
 
 // CreateRouter creates our router with the URLs
 func (db *DB) createRouter() *gin.Engine {
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	// Route for the static content (images, SVG...)
 	router.Static("/ui", BasePath+"/ui")
@@ -88,7 +93,7 @@ func InitDatabase() DB {
 	if err != nil {
 		if os.Getenv("GOPATH") == "" {
 			fmt.Println("Try writing the GOPATH with: ")
-			fmt.Println("export GOPATH=$HOME/go")
+			fmt.Println("\033[31m export GOPATH=$HOME/go\033[37m")
 		}
 		os.MkdirAll(BasePath+"/data/", os.ModePerm)
 		db, err = bolthold.Open(BasePath+"/data/"+projectName+".db", 0666, nil)
