@@ -90,6 +90,8 @@ func ensureLoggedIn() gin.HandlerFunc {
 				fmt.Println("Redirecting to /log-in from ensureLoggedIn")
 				c.Redirect(http.StatusFound, "/log-in")
 			}
+		} else {
+			c.Redirect(http.StatusFound, "/log-in")
 		}
 	}
 }
